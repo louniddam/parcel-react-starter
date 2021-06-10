@@ -1,15 +1,11 @@
-class Foo {
-    name;
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-    constructor(name) {
-        this.name = name;
-    }
-}
+//Le noeud parent
+const MOUNT_NODE = document.getElementById('app');
 
-const main = async () => {
-    const bar = new Foo('bar');
-
-    console.log(bar);
-}
-
-main();
+ReactDOM.render(
+    <div>
+        <h1>Hello</h1>
+    </div>, MOUNT_NODE
+)
