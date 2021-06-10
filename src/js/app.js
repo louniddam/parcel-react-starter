@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+
 
 import { useDispatch, useSelector } from 'react-redux'
+
+import Login from './pages/login'
+import Home from './pages/home'
 
 const App = () => {
     const dispatch = useDispatch();
@@ -17,7 +22,24 @@ const App = () => {
 
     console.log('APP global state : ', appState)
 
-    return <h1>Hello App</h1>
+    return (
+        <Router>
+    <nav>
+        <ul>
+            <li>
+                <Link to="/">Home</Link>
+            </li>
+            <li>
+                <Link to="/login">About</Link>
+            </li>
+        </ul>
+    </nav>
+    <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/login" component={Login} />
+    </Switch>
+</Router>
+)
 }
 
 export default App
